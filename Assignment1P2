@@ -1,0 +1,115 @@
+# This is a program to store new vehicle inventory and assist with monthly payments
+
+
+# Create variable of your favorite car brand (e.g., brand = ‘RAM’)
+brand = "McLaren"
+
+# Create list of 5 of their models from cheapest to most expensive
+models = ["Artura", "GT", "Senna", "Speedtail", "P1"]
+
+# Append a 6th model to the list
+models.append("F1")
+
+# Create list of 5 standard colors for all models
+colors = ["black", "white", "red", "orange", "grey"]
+
+# Replace your last color with a different color
+colors.pop()
+colors.append("blue")
+
+# Create variable of the current year (e.g., YEAR = ‘2026’)
+YEAR = '2026'
+
+# Create MSRP constant number (not string) of each of the models (e.g., MSRP_1500Truck = 33000)
+MSRP_Artura = 230_000
+MSRP_GT = 255_000
+MSRP_Senna = 988_000
+MSRP_Speedtail = 2_250_000
+MSRP_P1 = 2_300_000
+MSRP_F1 = 20_000_000
+
+# Create a constant number (not string) for total months in 4yr, 5yr, and 6yr loans (e.g., fouryr = 48, sixyr = 72)
+fouryr = 48
+fiveyr = 60
+sixyr = 72
+
+# Create a variable for the guest's name. Be courteous in your upcoming messages :)
+guest = "Robert Robbie Robertson III"
+
+# Create message variable (with f-string) welcoming customer to your new car store
+welcometxt = f"Welcome Robertson III."
+
+# Create awesome banner with your brand/name/dealership, however you want to welcome customers
+banner = r"""
+============================================   
+             ________________              
+            / |     | |      \\            
+      -----/__|_____| |_______\\---\\   
+     |         ''      ''           ||<  
+     {=+//_\\________________//_\\==||<  
+        \\T//                \\T//         
+============================================
+"""
+
+# Print awesome banner and welcome message
+print(welcometxt)
+print(banner)
+
+# Using title methods, print the vehicles in alphabetical order, with the year and available colors.
+models = [m.title() for m in models]
+models.sort()
+
+print(models)
+print(colors)
+
+years = [2026, 2025, 2026, 2023, 2015, 1995]
+print(years)
+print("")
+
+# Create a variable that calculates a monthly payment (no interest) for 5yr/60months for the first vehicle. Do not let more than two decimals to occur.
+price = MSRP_Artura
+
+
+
+payment_5yr = round(price / fiveyr, 2)
+
+
+# and print that in a nice, kind message. Don't be rude/pushy to the customer :)
+print("The Artura 5-Year Monthly Payment:", payment_5yr)
+
+# Do the same thing, but give them 4yr and 6yr options for the same vehicle
+payment_6yr = round(price / sixyr, 2)
+payment_4yr = round(price / fouryr, 2)
+
+print("The 4-Year Monthly Payment:", payment_4yr)
+print("The 6-Year Monthly Payment:", payment_6yr)
+print("")
+
+# Lastly, give them a 5yr option for each of the other vehicles, just to see if they are interested
+prices = [
+    230_000,   # Artura
+    255_000,   # GT
+    988_000,   # Senna
+    2_250_000, # Speedtail
+    2_300_000, # P1
+    20_000_000 # F1
+]
+
+for i in range(1, len(models)):
+        monthly_payment = round(prices[i] / fiveyr, 2)
+        print("The 5-Year Monthly Payment for the", models[i], "is", monthly_payment)
+print("")
+
+#three new features
+total_cost_5yr = round(payment_5yr * fiveyr, 2)
+print("Total cost for Artura over 5 years (no interest):", total_cost_5yr)
+
+expensive_cars = []
+
+for i in range(len(models)):
+    if prices[i] > 1_000_000:
+        expensive_cars.append(models[i])
+
+print("\nOur most exclusive vehicles over $1M:", expensive_cars)
+
+print(f"\nThank you for visiting, Robertson III! We hope you found the perfect McLaren.")
