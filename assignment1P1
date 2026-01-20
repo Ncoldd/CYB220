@@ -1,0 +1,12 @@
+print("Hello World")
+
+ print("  __________")
+ print(" |  AWESOME |")
+ print(" |  PYTHON  |")
+ print(" |__________|")
+ print("      ||")
+ print("      ||")
+ print("     /||\\")
+
+
+print("\nHere comes a newline\nand another\n\tand yet again with a tab, too!\nOh, btw, it's Nathen")
